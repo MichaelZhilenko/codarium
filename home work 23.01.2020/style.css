@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header>div {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+li {
+    display: inline;
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+li>a {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
+
+a,
+.image-container {
+    -webkit-transition: ease-in-out 0.3s;
+    -moz-transition: ease-in-out 0.3s;
+    transition: ease-in-out 0.3s;
+}
+
+li>a:hover {
+    background-color: rgba(245, 245, 245, 1);
+    text-decoration: none;
+    color: #000000;
+    -webkit-transition: ease-in-out 0.3s;
+    -moz-transition: ease-in-out 0.3s;
+    transition: ease-in-out 0.3s;
+}
+
+.product-list {
+    margin-top: 40px;
+}
+
+.product-card {
+    border: 10px solid whitesmoke;
+    padding: 10px;
+}
+
+.product-card:hover .image-container {
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    -webkit-transition: ease-in-out 0.3s;
+    -moz-transition: ease-in-out 0.3s;
+    transition: ease-in-out 0.3s;
+}
+
+.image-container {
+    position: relative;
+    background-color: whitesmoke;
+    margin: 10px;
+}
+
+.button {
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    border: 2px solid yellow;
+    width: 90%;
+    height: 40px;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: yellow;
+}
+
+.add-to-cart {
+    top: calc(40% + 50px);
+}
+
+.button:hover {
+    text-decoration: none;
+    background-color: whitesmoke;
+    border: 2px solid whitesmoke;
+    color: #000000;
+    -webkit-transition: ease-in-out 0.3s;
+    -moz-transition: ease-in-out 0.3s;
+    transition: ease-in-out 0.3s;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+h5::before {
+    content: "\f005 \f005 \f005 \f005 \f123";
+    display: block;
+    color: yellow;
+    font-family: FontAwesome;
+}
