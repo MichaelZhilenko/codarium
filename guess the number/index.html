@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let secretNumber = getRandomNumber(1, 100);
+        function getRandomNumber(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        function checkAnswer(number, answer) {
+            return (number != answer) ? false : true;
+        }
+        function answerHelp(number, newAnswer) {
+            if (number < newAnswer) answer = +prompt("Введите меньшее число");
+            else answer = +prompt("Введите большее число");
+        }
+        let answer = +prompt("Угадайте число");
+        while (!checkAnswer(secretNumber, answer)) {
+            answerHelp(secretNumber, answer);
+        }
+        alert("Поздравляем!");
+    </script>
+</body>
+
+</html>
