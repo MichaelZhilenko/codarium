@@ -54,7 +54,10 @@
             let div = document.createElement('div');
             let strHtml = `${score}.  `;
             for (let i = 0; i < 4; i++) {
-                strHtml += `<img src="${result.position[i]}.png" alt="">`;
+                if (result.position[i] == 'x') imageName = "xxx";
+                if (result.position[i] == '0') imageName = "0";
+                if (result.position[i] == '1') imageName = "lll";
+                strHtml += `<img src="${imageName}.png" alt="">`;
             }
             div.innerHTML = strHtml;
             document.body.append(div);
