@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulls and cows</title>
+    <style>
+        input,
+        label {
+            display: block;
+            width: 200px;
+            margin: 5px auto;
+        }
+        
+        #answer {
+            padding: 12px 20px;
+            box-sizing: border-box;
+        }
+        
+        #button {
+            background-color: #4CAF50;
+            width: 200px;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        div {
+            margin: auto;
+            width: 250px;
+        }
+        
+        img {
+            width: 50px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="answer">Введите 4 цифры, цифры не должны повторяться</label>
+    <input type="number" id="answer" min="1000" max="9999" required>
+    <input type="button" value="Button" id="button" onclick="main()">
+
+    <script>
+        let secretKey = getSecretKey();
+        let score = 0;
+
+        function viewResult(result) {
+            let div = document.createElement('div');
+            let strHtml = `${score}.  `;
+            for (let i = 0; i < 4; i++) {
+                strHtml += `<img src="${result.position[i]}.png" alt="">`;
+            }
+            div.innerHTML = strHtml;
+            document.body.append(div);
+            if (result.position == "1111") {
+                if (confirm(`Победа!!! Ваш результат: ${score} Побробовать еще раз?`)) window.location.href = window.location.href;
+            }
+
+        }
+
+
+        function main() {
+            str = document.getElementById("answer").value;
+            if (checkStr(str)) {
+                viewResult(checkAnswer(str));
+            } else alert("Введите 4 цифры и они не должны повторяться");
+        }
+
+        function checkStr(str) {
+            if (str.length == 4) {
+                for (let i = 0; i < 3; i++) {
+                    if (1 + str.indexOf(str[i], i + 1)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false
+        }
+
+        function getSecretKey() {
+            let str = '';
+            for (let i = 0; i < 4; i++) {
+                randomNumber = '' + Math.floor(Math.random() * 10);
+                while (str.includes(randomNumber)) {
+                    randomNumber = '' + Math.floor(Math.random() * 10);
+                }
+                str += randomNumber;
+            }
+            return str;
+        }
+
+        function checkAnswer(str) {
+            score++;
+            let result = {
+                'cows': 0,
+                'buls': 0,
+                'position': ''
+            };
+            for (let i = 0; i < 4; i++) {
+                let charPosition = secretKey.indexOf(str[i]);
+                if (1 + charPosition) {
+                    if (charPosition == i) {
+                        result.buls += 1;
+                        result.position += '1';
+                    } else {
+                        result.cows += 1;
+                        result.position += '0';
+                    }
+                } else {
+                    result.position += 'x';
+                }
+            }
+            return result;
+        }
+    </script>
+</body>
+
+</html>
