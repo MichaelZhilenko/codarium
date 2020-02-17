@@ -57,7 +57,7 @@
                 if (result.position[i] == 'x') imageName = "https://raw.githubusercontent.com/MichaelZhilenko/codarium/gh-pages/Bulls%20and%20cows/xxx.png";
                 if (result.position[i] == '0') imageName = "0.png";
                 if (result.position[i] == '1') imageName = "https://raw.githubusercontent.com/MichaelZhilenko/codarium/gh-pages/Bulls%20and%20cows/lll.png";
-                strHtml += `<img src="${imageName}" alt="">`;
+                strHtml += `<img src="${imageName}" alt="${result.position[i]}">`;
             }
             div.innerHTML = strHtml;
             document.body.append(div);
