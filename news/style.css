@@ -1,0 +1,26 @@
+.news-block {
+    position: relative;
+    color: #ffffff;
+    padding: 10px;
+}
+.news-block>img {
+    width: 100%;
+}
+.news-block>a, .news-block>div {
+    position: absolute;
+    left: 5%;
+}
+.news-block>a {
+    color: #ffffff;
+    width: 90%;
+    bottom: 15%;
+    line-height: 18px;
+    font-weight: bold;
+}
+.news-block>div {
+    bottom: 15px;
+    font-size: small;
+}
+h3 {
+    text-align: center;
+}
