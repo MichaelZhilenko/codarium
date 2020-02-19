@@ -1,8 +1,9 @@
 let currentPage = '1';
 let needMore = true;
 let count = '6';
+let onLoad = false;
 
-let viewData = function (data) {
+let viewData = function(data) {
     let renderData = '';
     (data.list).forEach((item, i, arr) => {
         renderData += '<div class="col-sm-6 col-lg-4 news-block">' + `<img src="https://mariupolskoe.tv/i/cache/crop/news/634x357/${item.image}" alt="">` + `<a href="https://mariupolskoe.tv/news/view/${item.uri}">${item.title}</a>` + `<div>${item.published_caption}</div>` + '</div>';
@@ -10,13 +11,15 @@ let viewData = function (data) {
     $('.news-row').append(renderData);
 };
 
-let getCurrentStatus = function (data) {
+let getCurrentStatus = function(data) {
     currentPage = +currentPage + 1;
     needMore = data.need_more;
     count = data.count;
+    onLoad = true;
 };
 
 function showNews(page, arrayFunctions) {
+    onLoad = false;
     $.ajax({
         method: "GET",
         url: "https://cors-anywhere.herokuapp.com/mariupolskoe.tv/programs/news/13",
@@ -25,7 +28,7 @@ function showNews(page, arrayFunctions) {
         },
         success: arrayFunctions,
         statusCode: {
-            200: function () {
+            200: function() {
                 console.log("Ok");
             }
         }
@@ -37,7 +40,7 @@ function checkLastPage() {
 }
 
 function showMore(event) {
-    if (needMore) {
+    if (needMore && onLoad) {
         showNews(currentPage, [viewData, getCurrentStatus, checkLastPage]);
         console.log(needMore);
     } else {
