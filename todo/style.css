@@ -1,0 +1,8 @@
+.my-button {
+    cursor: pointer;
+    text-decoration: initial;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
