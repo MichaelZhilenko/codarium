@@ -4,8 +4,10 @@ let count = '6';
 let onLoad = false;
 
 function getPage() {
-    currentPage = window.location.search.substr(1).split("=")[1];
-    if (currentPage == undefined || !Number.isInteger(+currentPage)) {
+    let url = new URL(window.location.href);
+    currentPage = url.searchParams.get("page");
+    if (!Number.isInteger(+currentPage) || +currentPage < 1) {
+        console.log(currentPage);
         currentPage = '1';
         setState();
     }
@@ -58,11 +60,11 @@ function showMore() {
 }
 
 function setState() {
-        var state = { 'page_id': `${currentPage}` };
-        var title = '';
-        var url = `index.html?page=${currentPage}`;
-        history.pushState(state, title, url);
-        if (needMore) currentPage = +currentPage + 1;
+    var state = { 'page_id': `${currentPage}` };
+    var title = '';
+    var url = `index.html?page=${currentPage}`;
+    history.pushState(state, title, url);
+    if (needMore) currentPage = +currentPage + 1;
 }
 getPage();
 showNews(currentPage, [viewData, getCurrentStatus, checkLastPage, setState]);
