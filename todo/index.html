@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container news-container">
+        <div class="row">
+            <h1 class="col-sm-12">Что нужно сделать сегодня?</h1>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="my-input" placeholder="Title" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary add-new-task" onclick="addNewTask()" type="button">Добавить</button>
+                </div>
+            </div>
+        </div>
+        <ul class="list-group" id="my-list">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>Сходить в магазин</span>
+                <span class="badge badge-primary badge-pill my-button">x</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>Лечь спать</span>
+                <span class="badge badge-primary badge-pill my-button">x</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>Сделать to do list</span>
+                <span class="badge badge-primary badge-pill my-button">x</span>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
